@@ -10,7 +10,7 @@ import static org.apache.http.HttpStatus.*;
 public class TestLoginUser {
     User user = new User("ios@yandex.ru","123","Oleg");
     UserRequests userRequests = new UserRequests();
-    String accessToken;
+    private String accessToken;
     @Before
     public void setUp(){
         userRequests.setUp();

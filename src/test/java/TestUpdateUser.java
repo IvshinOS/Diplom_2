@@ -11,7 +11,9 @@ import static org.junit.Assert.assertEquals;
 public class TestUpdateUser {
     User user = new User("ios@yandex.ru","123","Oleg");
     UserRequests userRequests = new UserRequests();
-    String accessToken;
+    private String accessToken;
+    private String updateEmail = "ios1@yandex.ru";
+    private String updateName = "Ivan";
     @Before
     public void setUp(){
         userRequests.setUp();
@@ -22,7 +24,7 @@ public class TestUpdateUser {
     @Test
     @DisplayName("Изменение email авторизованного пользователя")
     public void checkUpdateEmailAuthUser(){
-        user.setEmail("ios1@yandex.ru");
+        user.setEmail(updateEmail);
         userRequests.changeUserData(user,accessToken)
                 .then().assertThat()
                 .body("success",equalTo(true))
@@ -32,7 +34,7 @@ public class TestUpdateUser {
     @Test
     @DisplayName("Изменение имени авторизованного пользователя")
     public void checkUpdateNameAuthUser(){
-        user.setName("Ivan");
+        user.setName(updateName);
         userRequests.changeUserData(user,accessToken)
                 .then().assertThat()
                 .body("success",equalTo(true))
@@ -43,7 +45,7 @@ public class TestUpdateUser {
     @DisplayName("Изменение email неавторизованного пользователя")
     public void checkUpdateEmailNotAuthUser(){
         accessToken="";
-        user.setEmail("ios1@yandex.ru");
+        user.setEmail(updateEmail);
         userRequests.changeUserData(user,accessToken)
                 .then().assertThat().statusCode(SC_UNAUTHORIZED);
     }
@@ -52,7 +54,7 @@ public class TestUpdateUser {
     @DisplayName("Изменение имени неавторизованного пользователя")
     public void checkUpdateNameNotAuthUser() {
         accessToken="";
-        user.setName("Ivan");
+        user.setName(updateName);
         userRequests.changeUserData(user, accessToken)
                 .then().assertThat().statusCode(SC_UNAUTHORIZED);
     }

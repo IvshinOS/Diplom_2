@@ -18,8 +18,8 @@ public class TestGetOrder {
     OrderRequests orderRequests = new OrderRequests();
     User user = new User("ios@yandex.ru","123","Oleg");
     UserRequests userRequests = new UserRequests();
-    public Order order;
-    public Ingredient ingredientList;
+    private Order order;
+    private Ingredient ingredientList;
     IngredientRequests ingredientRequests = new IngredientRequests();
     private String accessToken;
     public List<String> ingredients;

@@ -20,11 +20,11 @@ public class TestCreateOrder {
     OrderRequests orderRequests = new OrderRequests();
     User user = new User("ios@yandex.ru","123","Oleg");
     UserRequests userRequests = new UserRequests();
-    public Order order;
-    public Ingredient ingredientList;
+    private Order order;
+    private Ingredient ingredientList;
     IngredientRequests ingredientRequests = new IngredientRequests();
     private String accessToken;
-    public List<String> ingredients;
+    private List<String> ingredients;
     @Before
     public void setUp(){
         orderRequests.setUp();

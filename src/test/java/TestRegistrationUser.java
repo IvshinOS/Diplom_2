@@ -12,7 +12,7 @@ public class TestRegistrationUser {
 
     User user = new User("ios@yandex.ru","123","Oleg");
     UserRequests userRequests = new UserRequests();
-    String accessToken;
+    private String accessToken;
     @Before
     public void setUp(){
         userRequests.setUp();
